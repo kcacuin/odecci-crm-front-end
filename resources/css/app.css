@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+:root {
+    height: 100%;
+}
+
+.odc-bg {
+    background: url('../../public/storage/img/bg-1.png') left center/cover no-repeat;
+}
+
+.odc-bg-logo {
+    background: url('../../public/storage/img/logo-1-sub.svg') left center/contain no-repeat content-box;
+    position: absolute;
+    height: 80%;
+    width: 50%;
+    z-index: 9;
+    inset: 0;
+    top: 12%;
+}
+
+.odc-bg-overlay {
+    isolation: isolate;
+}
+
+.odc-bg-overlay::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 50%;
+    height: 100%;
+    background: url('../../public/storage/img/bg-2.png') center center/cover no-repeat content-box;
+    pointer-events: none;
+}
+
+.middle {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.footer {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+/* .odc-input:valid ~ .odc-input-label,
+.odc-input:focus ~ .odc-input-label,
+.odc-input-focused {
+    color: rgb(191 219 254 / var(--tw-text-opacity));
+    background-color: rgb(32 83 117 / var(--tw-bg-opacity));
+    border-radius: 0.25rem; */
+    /* @apply text-blue-200 bg-blue-secondary rounded transform -translate-y-6 -translate-x-2 scale-75; */
+/* } */
+
+/*
+.odc-input[type="email"]:valid ~ .odc-input-label,
+.odc-input[type="email"]:focus ~ .odc-input-label,
+.odc-input-focused {
+    @apply -translate-x-4;
+} */
+
+/* .odc-input:focus ~ .odc-input-label, */
+/* .odc-input:not(:placeholder-shown) ~ .odc-input-label { */
+    /* @apply text-blue-500; */
+  /* @apply text-blue-500 transform -translate-y-10 -translate-x-2 scale-75; */
+/* } */
