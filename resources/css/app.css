@@ -22,11 +22,12 @@ body,
     top: 12%;
 }
 
-.odc-bg-overlay {
+.odc-bg-overlay,
+.odc-nav-bg-overlay {
     isolation: isolate;
 }
 
-.odc-bg-overlay::after {
+.odc-bg-overlay::after{
     content: '';
     position: absolute;
     z-index: -1;
@@ -34,6 +35,22 @@ body,
     height: 100%;
     background: url('../../public/storage/img/bg-2.png') center center/cover no-repeat content-box;
     pointer-events: none;
+}
+
+.odc-nav-bg-overlay::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 7rem;
+    height: 100%;
+    top: 0;
+    mix-blend-mode: color-burn;
+    background: url('../../public/storage/img/bg-2.png') center center/cover no-repeat content-box;
+    pointer-events: none;
+    transition: 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+.odc-nav-bg-overlay:hover::after {
+    width: 18rem;
 }
 
 .middle {
@@ -44,24 +61,40 @@ body,
     grid-area: 3 / 1 / 4 / 2;
 }
 
-/* .odc-input:valid ~ .odc-input-label,
-.odc-input:focus ~ .odc-input-label,
-.odc-input-focused {
-    color: rgb(191 219 254 / var(--tw-text-opacity));
-    background-color: rgb(32 83 117 / var(--tw-bg-opacity));
-    border-radius: 0.25rem; */
-    /* @apply text-blue-200 bg-blue-secondary rounded transform -translate-y-6 -translate-x-2 scale-75; */
-/* } */
+.odc-glass-active {
+    background: rgb(255,255,255);
+background: -moz-linear-gradient(118deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.6474964985994398) 100%);
+background: -webkit-linear-gradient(118deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.6474964985994398) 100%);
+background: linear-gradient(118deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.6474964985994398) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+}
 
-/*
-.odc-input[type="email"]:valid ~ .odc-input-label,
-.odc-input[type="email"]:focus ~ .odc-input-label,
-.odc-input-focused {
-    @apply -translate-x-4;
+.odc-glass:hover {
+    background: rgb(255,255,255);
+background: -moz-linear-gradient(118deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.6474964985994398) 100%);
+background: -webkit-linear-gradient(118deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.6474964985994398) 100%);
+background: linear-gradient(118deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.6474964985994398) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+}
+
+
+.odc-logo-clip {
+    transform: translateX(5.6rem);
+    clip-path: polygon(0% 0%, 26% 0%, 22% 100%, 0% 100%);
+    transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.odc-nav:hover .odc-logo-clip {
+    transform: translateX(0rem);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* .odc-logo-clip {
+    width: 3.43rem;
+    overflow: hidden;
+    transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.odc-nav:hover .odc-logo-clip {
+    width: auto;
 } */
-
-/* .odc-input:focus ~ .odc-input-label, */
-/* .odc-input:not(:placeholder-shown) ~ .odc-input-label { */
-    /* @apply text-blue-500; */
-  /* @apply text-blue-500 transform -translate-y-10 -translate-x-2 scale-75; */
-/* } */
