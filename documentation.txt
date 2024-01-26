@@ -25,3 +25,9 @@ First Commit:
     - navigation.blade.php
     - dashboard.blade.php
     - app.css
+
+Second Commit:
+• Clients Module: Table Button (Corporate)✅
+    - clients.blade.php
+    - downloaded the svgs from Figma
+        - svg-icon.blade.php
