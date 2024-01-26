@@ -20,10 +20,10 @@
             @include('layouts.navigation')
 
             <!-- Page Heading -->
-            <div class="flex flex-col w-full overflow-hidden">
+            <div class="flex flex-col  w-full overflow-hidden">
                 @if (isset($header))
                     <header class="odc-header-overlay overflow-hidden relative bg-gradient-to-br from-blue-primary to-blue-secondary dark:bg-gray-800 shadow">
-                        <div class="h-20 w-full flex mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        <div class="flex justify-between h-20 w-full mx-auto py-6 px-4 sm:px-6 lg:px-8">
                             {{ $header }}
                         </div>
                     </header>
