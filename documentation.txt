@@ -16,3 +16,12 @@ January 25, 2024 (Thursday)
 First Commit:
 • Completed Side Navigation✅
     - with hover transition
+
+January 26, 2024 (Friday)
+First Commit:
+• Clients Module: Table (Corporate)✅
+    - clients.blade.php
+    - app.blade.php
+    - navigation.blade.php
+    - dashboard.blade.php
+    - app.css

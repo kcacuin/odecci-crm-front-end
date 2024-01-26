@@ -198,8 +198,8 @@
             </div>
         </div>
     </div> --}}
-
-    <div class="odc-nav-bg-overlay overflow-hidden bg-gradient-to-br h-full from-blue-primary to-blue-secondary dark:bg-gray-700 w-28 ease-out duration-300 group-hover:w-72 shadow-lg lg:block">
+    {{-- * Primary Navigation --}}
+    <div class="odc-nav-bg-overlay overflow-hidden h-full bg-gradient-to-br from-blue-primary to-blue-secondary dark:bg-gray-700 w-28 ease-out duration-300 group-hover:w-72 shadow-lg lg:block">
         <div class="h-full flex flex-col mx-6">
             <div class="flex items-center justify-center pt-6 round">
                 <div class="odc-logo-clip shrink-0 flex items-center">
