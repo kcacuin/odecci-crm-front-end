@@ -38,3 +38,11 @@ Third Commit:
     - app.blade.php
     - downloaded the svgs from Figma
         - svg-icon.blade.php
+
+January 29, 2024 (Monday)
+First Commit:
+• Clients Module: Header (Corporate)✅
+- made some changes to the header buttons and added the modal
+    - clients.blade.php
+    - app.blade.php
+    - app.css
