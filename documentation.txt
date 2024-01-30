@@ -65,3 +65,9 @@ Third Commit:
     - clients.blade.php
     - ClientController.php
     - web.php
+
+Fourth Commit:
+• Refactored Clients Model & Controller & Factory & Table
+• Added Pagination
+    - published vendor for pagination
+
