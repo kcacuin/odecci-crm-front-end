@@ -46,3 +46,8 @@ First Commit:
     - clients.blade.php
     - app.blade.php
     - app.css
+
+January 30, 2024 (Tuesday)
+First Commit:
+• Dynamic Header
+- made the header consistent with the page

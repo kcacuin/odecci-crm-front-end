@@ -1,7 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Admin') }}
+        <h2 class="flex items-center font-semibold text-xl text-white dark:text-gray-200 leading-tight">
+            <x-svg-icon
+                name="admin"
+                :active="request()->routeIs('admin')" />
+            <span class="ml-4">Admin</span>
         </h2>
     </x-slot>
 
