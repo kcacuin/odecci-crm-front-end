@@ -51,3 +51,10 @@ January 30, 2024 (Tuesday)
 First Commit:
 • Dynamic Header
 - made the header consistent with the page
+
+Second Commit:
+• Database: Client Corporate Factory
+- Database seeding for displaying data in Corporate Clients Table
+
+• Register Page
+- fixed the form layout
