@@ -58,3 +58,10 @@ Second Commit:
 
 • Register Page
 - fixed the form layout
+
+Third Commit:
+• Dummy Data for Client Table
+- reflecting the dummy data to the Corporate Clients Table
+    - clients.blade.php
+    - ClientController.php
+    - web.php

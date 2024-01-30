@@ -165,6 +165,7 @@
                     </thead>
                 </div>
                 <tbody>
+                    @foreach ($clients as $client)
                     <tr class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="w-4 p-4">
                             <div class="flex items-center">
@@ -173,7 +174,7 @@
                             </div>
                         </td>
                         <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            ODC001
+                            ODC-{{ $client->client_code }}
                         </td>
                         <td class="px-6 py-4">
                             <div class="flex items-center">
@@ -184,31 +185,31 @@
                                 </div>
                                 <div class="ml-3">
                                     <p class="text-gray-900 whitespace-no-wrap">
-                                        Odecci Solutions Inc.
+                                        {{ $client->client_name }}
                                     </p>
                                 </div>
                             </div>
                         </td>
                         <td class="px-6 py-4">
-                            Alisandro Martin P. Villegas
+                            {{ $client->contact_person }}
                         </td>
                         <td class="px-6 py-4">
-                            0004 Miranda Street, Manatal Pandi Bulacan Philippines, 3014
+                            {{ $client->address }}
                         </td>
                         <td class="px-6 py-4">
-                            0935-887-8176
+                            {{ $client->contact_number }}
                         </td>
                         <td class="px-6 py-4">
-                            Ali@odecci.com
+                            {{ $client->email }}
                         </td>
                         <td class="px-6 py-4">
                             <div class="flex items-center">
-                                <button id="dropdownProject" data-dropdown-toggle="dropdown-project" class="inline-flex items-center px-2 leading-none text-sm font-normal text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
+                                <button id="dropdownProject-{{ $client->client_code }}" data-dropdown-toggle="dropdown-project-{{ $client->client_code }}" class="inline-flex items-center px-2 leading-none text-sm font-normal text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
                                     <span class="text-blue-secondary text-3xl tracking-tighter cursor-pointer select-none">
                                         {{ '••' }}
                                     </span>
                                 </button>
-                                <div id="dropdown-project" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28 dark:bg-gray-700">
+                                <div id="dropdown-project-{{ $client->client_code }}" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28 dark:bg-gray-700">
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                                     <li>
                                         <a href="#" class="group flex items-center px-4 py-2
@@ -258,193 +259,8 @@
                             </div>
                         </td>
                     </tr>
-                    <tr class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-red bg-gray-100 border-gray-300 rounded focus:ring-red dark:focus:ring-red dark:ring-offset-red dark:focus:ring-offset-red focus:ring-2 dark:bg-red dark:border-red">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            ODC001
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0">
-                                    <a href="#" class="relative block">
-                                        <img alt="profile" src="{{ asset('storage/img/client-dp-sample.png')}}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                    </a>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        Odecci Solutions Inc.
-                                    </p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4">
-                            Alisandro Martin P. Villegas
-                        </td>
-                        <td class="px-6 py-4">
-                            0004 Miranda Street, Manatal Pandi Bulacan Philippines, 3014
-                        </td>
-                        <td class="px-6 py-4">
-                            0935-887-8176
-                        </td>
-                        <td class="px-6 py-4">
-                            Ali@odecci.com
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center">
-                                <button id="dropdownProject2" data-dropdown-toggle="dropdown-project2" class="inline-flex items-center px-2 leading-none text-sm font-normal text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
-                                    <span class="text-blue-secondary text-3xl tracking-tighter cursor-pointer select-none">
-                                        {{ '••' }}
-                                    </span>
-                                </button>
-                                <div id="dropdown-project2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28 dark:bg-gray-700">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-                                    <li>
-                                        <a href="#" class="group flex items-center px-4 py-2
-                                        hover:text-white
-                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
-                                         dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <x-svg-icon
-                                                class="text-blue-secondary group-hover:text-white"
-                                                name="view"
-                                                />
-                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
-                                                View
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="group flex items-center px-4 py-2
-                                        hover:text-white
-                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
-                                         dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <x-svg-icon
-                                                class="text-blue-secondary group-hover:text-white"
-                                                name="edit"
-                                                />
-                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
-                                                Edit
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="group flex items-center px-4 py-2
-                                        hover:text-white
-                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
-                                         dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <x-svg-icon
-                                                class="text-blue-secondary group-hover:text-white"
-                                                name="trash"
-                                                />
-                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
-                                                Trash
-                                            </span>
-                                        </a>
-                                    </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-red bg-gray-100 border-gray-300 rounded focus:ring-red dark:focus:ring-red dark:ring-offset-red dark:focus:ring-offset-red focus:ring-2 dark:bg-red dark:border-red">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            ODC001
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0">
-                                    <a href="#" class="relative block">
-                                        <img alt="profile" src="{{ asset('storage/img/client-dp-sample.png')}}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                    </a>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        Odecci Solutions Inc.
-                                    </p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4">
-                            Alisandro Martin P. Villegas
-                        </td>
-                        <td class="px-6 py-4">
-                            0004 Miranda Street, Manatal Pandi Bulacan Philippines, 3014
-                        </td>
-                        <td class="px-6 py-4">
-                            0935-887-8176
-                        </td>
-                        <td class="px-6 py-4">
-                            Ali@odecci.com
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center">
-                                <button id="dropdownProject" data-dropdown-toggle="dropdown-project" class="inline-flex items-center px-2 leading-none text-sm font-normal text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
-                                    <span class="text-blue-secondary text-3xl tracking-tighter cursor-pointer select-none">
-                                        {{ '••' }}
-                                    </span>
-                                </button>
-                                <div id="dropdown-project" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28 dark:bg-gray-700">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-                                    <li>
-                                        <a href="#" class="group flex items-center px-4 py-2
-                                        hover:text-white
-                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
-                                         dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <x-svg-icon
-                                                class="text-blue-secondary group-hover:text-white"
-                                                name="view"
-                                                />
-                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
-                                                View
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="group flex items-center px-4 py-2
-                                        hover:text-white
-                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
-                                         dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <x-svg-icon
-                                                class="text-blue-secondary group-hover:text-white"
-                                                name="edit"
-                                                />
-                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
-                                                Edit
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="group flex items-center px-4 py-2
-                                        hover:text-white
-                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
-                                         dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <x-svg-icon
-                                                class="text-blue-secondary group-hover:text-white"
-                                                name="trash"
-                                                />
-                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
-                                                Trash
-                                            </span>
-                                        </a>
-                                    </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    @endforeach
+                    {{-- <tr class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="w-4 p-4">
                             <div class="flex items-center">
                                 <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-red bg-gray-100 border-gray-300 rounded focus:ring-red dark:focus:ring-red dark:ring-offset-red dark:focus:ring-offset-red focus:ring-2 dark:bg-red dark:border-red">
@@ -723,6 +539,192 @@
                             </div>
                         </td>
                     </tr>
+                    <tr class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="w-4 p-4">
+                            <div class="flex items-center">
+                                <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-red bg-gray-100 border-gray-300 rounded focus:ring-red dark:focus:ring-red dark:ring-offset-red dark:focus:ring-offset-red focus:ring-2 dark:bg-red dark:border-red">
+                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                            </div>
+                        </td>
+                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            ODC001
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0">
+                                    <a href="#" class="relative block">
+                                        <img alt="profile" src="{{ asset('storage/img/client-dp-sample.png')}}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                                    </a>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                        Odecci Solutions Inc.
+                                    </p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            Alisandro Martin P. Villegas
+                        </td>
+                        <td class="px-6 py-4">
+                            0004 Miranda Street, Manatal Pandi Bulacan Philippines, 3014
+                        </td>
+                        <td class="px-6 py-4">
+                            0935-887-8176
+                        </td>
+                        <td class="px-6 py-4">
+                            Ali@odecci.com
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center">
+                                <button id="dropdownProject" data-dropdown-toggle="dropdown-project" class="inline-flex items-center px-2 leading-none text-sm font-normal text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
+                                    <span class="text-blue-secondary text-3xl tracking-tighter cursor-pointer select-none">
+                                        {{ '••' }}
+                                    </span>
+                                </button>
+                                <div id="dropdown-project" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28 dark:bg-gray-700">
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                                    <li>
+                                        <a href="#" class="group flex items-center px-4 py-2
+                                        hover:text-white
+                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
+                                         dark:hover:bg-gray-600 dark:hover:text-white">
+                                            <x-svg-icon
+                                                class="text-blue-secondary group-hover:text-white"
+                                                name="view"
+                                                />
+                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
+                                                View
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="group flex items-center px-4 py-2
+                                        hover:text-white
+                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
+                                         dark:hover:bg-gray-600 dark:hover:text-white">
+                                            <x-svg-icon
+                                                class="text-blue-secondary group-hover:text-white"
+                                                name="edit"
+                                                />
+                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
+                                                Edit
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="group flex items-center px-4 py-2
+                                        hover:text-white
+                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
+                                         dark:hover:bg-gray-600 dark:hover:text-white">
+                                            <x-svg-icon
+                                                class="text-blue-secondary group-hover:text-white"
+                                                name="trash"
+                                                />
+                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
+                                                Trash
+                                            </span>
+                                        </a>
+                                    </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="w-4 p-4">
+                            <div class="flex items-center">
+                                <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-red bg-gray-100 border-gray-300 rounded focus:ring-red dark:focus:ring-red dark:ring-offset-red dark:focus:ring-offset-red focus:ring-2 dark:bg-red dark:border-red">
+                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                            </div>
+                        </td>
+                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            ODC001
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0">
+                                    <a href="#" class="relative block">
+                                        <img alt="profile" src="{{ asset('storage/img/client-dp-sample.png')}}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                                    </a>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                        Odecci Solutions Inc.
+                                    </p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            Alisandro Martin P. Villegas
+                        </td>
+                        <td class="px-6 py-4">
+                            0004 Miranda Street, Manatal Pandi Bulacan Philippines, 3014
+                        </td>
+                        <td class="px-6 py-4">
+                            0935-887-8176
+                        </td>
+                        <td class="px-6 py-4">
+                            Ali@odecci.com
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center">
+                                <button id="dropdownProject2" data-dropdown-toggle="dropdown-project2" class="inline-flex items-center px-2 leading-none text-sm font-normal text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
+                                    <span class="text-blue-secondary text-3xl tracking-tighter cursor-pointer select-none">
+                                        {{ '••' }}
+                                    </span>
+                                </button>
+                                <div id="dropdown-project2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28 dark:bg-gray-700">
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                                    <li>
+                                        <a href="#" class="group flex items-center px-4 py-2
+                                        hover:text-white
+                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
+                                         dark:hover:bg-gray-600 dark:hover:text-white">
+                                            <x-svg-icon
+                                                class="text-blue-secondary group-hover:text-white"
+                                                name="view"
+                                                />
+                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
+                                                View
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="group flex items-center px-4 py-2
+                                        hover:text-white
+                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
+                                         dark:hover:bg-gray-600 dark:hover:text-white">
+                                            <x-svg-icon
+                                                class="text-blue-secondary group-hover:text-white"
+                                                name="edit"
+                                                />
+                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
+                                                Edit
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="group flex items-center px-4 py-2
+                                        hover:text-white
+                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
+                                         dark:hover:bg-gray-600 dark:hover:text-white">
+                                            <x-svg-icon
+                                                class="text-blue-secondary group-hover:text-white"
+                                                name="trash"
+                                                />
+                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
+                                                Trash
+                                            </span>
+                                        </a>
+                                    </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr> --}}
 
 
 
