@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('client_code')->unique();
             $table->string('client_name');
+            $table->string('client_image')->nullable();
             $table->string('contact_person');
             $table->text('address');
             $table->string('contact_number');

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\ClientsCorporate;
-use Illuminate\Http\Request;
 
 class ClientsCorporateController extends Controller
 {
@@ -22,7 +21,8 @@ class ClientsCorporateController extends Controller
     public function store()
     {
         ClientsCorporate::create(array_merge($this->validateClient(), [
-            'client_code' => request()->user()->id,
+            'id' => request()->user()->id,
+            // 'client_image' => request()->file('client_image')->store('client_images')
         ]));
 
         return redirect('/clients/corporate');
@@ -35,6 +35,7 @@ class ClientsCorporateController extends Controller
         return request()->validate([
             'client_code' => 'required',
             'client_name' => 'required',
+            // 'client_image' => $client->exists ? ['image'] : ['required', 'image'],
             'contact_person' => 'required',
             'address' => 'required',
             'contact_number' => 'required',

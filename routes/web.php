@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard', function () {
-    return view('dashboard');
+    return view('dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -30,23 +30,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::get('messages', function () {
-    return view('messages');
+    return view('messages.index');
 })->middleware(['auth', 'verified'])->name('messages');
 
 Route::get('appointments', function () {
-    return view('appointments');
+    return view('appointments.index');
 })->middleware(['auth', 'verified'])->name('appointments');
 
 Route::get('projects', function () {
-    return view('projects');
+    return view('projects.index');
 })->middleware(['auth', 'verified'])->name('projects');
 
 Route::get('settings', function () {
-    return view('settings');
+    return view('settings.index');
 })->middleware(['auth', 'verified'])->name('settings');
 
 Route::get('admin', function () {
-    return view('admin');
+    return view('admin.index');
 })->middleware(['auth', 'verified'])->name('admin');
 
 Route::middleware('auth')->group(function () {

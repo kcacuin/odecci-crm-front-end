@@ -8,18 +8,15 @@
         <!-- Email Address -->
         <div class="relative">
             <x-text-input
-                id="email"
                 class="block mt-1 w-full @error('email')
                 border-pink-600 placeholder:select-none
                 @enderror"
                 type="email"
                 name="email"
-                value="{{ old('email') }}"
-                placeholder="placeholder"
                 required
                 autofocus
             />
-            <x-input-label for="email" :value="__('Username or email')"/>
+            <x-input-label name="Username or email" />
 
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
@@ -31,14 +28,12 @@
                 class="block mt-8 w-full @error('password')
                 border-pink-600
                 @enderror"
-                id="password"
                 type="password"
                 name="password"
-                placeholder="placeholder"
                 required
                 autocomplete="current-password"
             />
-            <x-input-label for="password" :value="__('Password')"/>
+            <x-input-label name="Password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
