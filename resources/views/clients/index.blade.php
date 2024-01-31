@@ -22,7 +22,7 @@
                     <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Add new client and select with the available client types.</p>
                     <ul class="my-4 space-y-3">
                         <li>
-                            <a href="#" class="flex items-center p-3 text-base font-bold text-blue-secondary
+                            <a href="/clients/corporate/add" class="flex items-center p-3 text-base font-bold text-blue-secondary
                             rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                                 <span class="flex-1 ms-3 whitespace-nowrap">Corporate</span>
                             </a>
@@ -127,153 +127,153 @@
     </x-slot>
 
 
-<div class="odc-main-con-height p-4 bg-white">
-    <div class="h-full flex flex-col justify-between bg-white relative overflow-hidden shadow-md sm:rounded-lg">
-        <div class="relative overflow-auto h-full bg-white">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <div class="relative w-full">
-                    <thead class="w-full text-xs text-white uppercase bg-gradient-to-br from-blue-primary to-blue-secondary dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="p-4">
+    <div class="odc-main-con-height p-4 bg-white">
+        <div class="h-full flex flex-col justify-between bg-white relative overflow-hidden shadow-md sm:rounded-lg">
+            <div class="relative overflow-auto h-full bg-white">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <div class="relative w-full">
+                        <thead class="w-full text-xs text-white uppercase bg-gradient-to-br from-blue-primary to-blue-secondary dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="p-4">
+                                    <div class="flex items-center">
+                                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-red bg-gray-100 border-gray-300 rounded focus:ring-red dark:focus:ring-red dark:ring-offset-red dark:focus:ring-offset-red focus:ring-2 dark:bg-red dark:border-red">
+                                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Client Code
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Client Name
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Contact Person
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Address
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Contact No.
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Email
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                    </div>
+                    <tbody>
+                        @foreach ($clients as $client)
+                        <tr class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <td class="w-4 p-4">
                                 <div class="flex items-center">
                                     <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-red bg-gray-100 border-gray-300 rounded focus:ring-red dark:focus:ring-red dark:ring-offset-red dark:focus:ring-offset-red focus:ring-2 dark:bg-red dark:border-red">
-                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                                 </div>
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Client Code
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Client Name
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Contact Person
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Address
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Contact No.
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Email
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Action
-                            </th>
+                            </td>
+                            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                ODC-{{ $client->client_code }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0">
+                                        <a href="#" class="relative block">
+                                            <img alt="profile" src="{{ asset('storage/img/client-dp-sample.png')}}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                                        </a>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            {{ $client->client_name }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $client->contact_person }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $client->address }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $client->contact_number }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $client->email }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <button id="dropdownProject-{{ $client->client_code }}" data-dropdown-toggle="dropdown-project-{{ $client->client_code }}" class="inline-flex items-center px-2 leading-none text-sm font-normal text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
+                                        <span class="text-blue-secondary text-3xl tracking-tighter cursor-pointer select-none">
+                                            {{ '••' }}
+                                        </span>
+                                    </button>
+                                    <div id="dropdown-project-{{ $client->client_code }}" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28 dark:bg-gray-700">
+                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                                        <li>
+                                            <a href="#" class="group flex items-center px-4 py-2
+                                            hover:text-white
+                                            hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
+                                            dark:hover:bg-gray-600 dark:hover:text-white">
+                                                <x-svg-icon
+                                                    class="text-blue-secondary group-hover:text-white"
+                                                    name="view"
+                                                    />
+                                                <span class="ml-3 text-blue-secondary group-hover:text-white">
+                                                    View
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="group flex items-center px-4 py-2
+                                            hover:text-white
+                                            hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
+                                            dark:hover:bg-gray-600 dark:hover:text-white">
+                                                <x-svg-icon
+                                                    class="text-blue-secondary group-hover:text-white"
+                                                    name="edit"
+                                                    />
+                                                <span class="ml-3 text-blue-secondary group-hover:text-white">
+                                                    Edit
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="group flex items-center px-4 py-2
+                                            hover:text-white
+                                            hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
+                                            dark:hover:bg-gray-600 dark:hover:text-white">
+                                                <x-svg-icon
+                                                    class="text-blue-secondary group-hover:text-white"
+                                                    name="trash"
+                                                    />
+                                                <span class="ml-3 text-blue-secondary group-hover:text-white">
+                                                    Trash
+                                                </span>
+                                            </a>
+                                        </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
-                    </thead>
-                </div>
-                <tbody>
-                    @foreach ($clients as $client)
-                    <tr class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-red bg-gray-100 border-gray-300 rounded focus:ring-red dark:focus:ring-red dark:ring-offset-red dark:focus:ring-offset-red focus:ring-2 dark:bg-red dark:border-red">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
-                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            ODC-{{ $client->client_code }}
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0">
-                                    <a href="#" class="relative block">
-                                        <img alt="profile" src="{{ asset('storage/img/client-dp-sample.png')}}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                    </a>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        {{ $client->client_name }}
-                                    </p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $client->contact_person }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $client->address }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $client->contact_number }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $client->email }}
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center">
-                                <button id="dropdownProject-{{ $client->client_code }}" data-dropdown-toggle="dropdown-project-{{ $client->client_code }}" class="inline-flex items-center px-2 leading-none text-sm font-normal text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
-                                    <span class="text-blue-secondary text-3xl tracking-tighter cursor-pointer select-none">
-                                        {{ '••' }}
-                                    </span>
-                                </button>
-                                <div id="dropdown-project-{{ $client->client_code }}" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28 dark:bg-gray-700">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-                                    <li>
-                                        <a href="#" class="group flex items-center px-4 py-2
-                                        hover:text-white
-                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
-                                         dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <x-svg-icon
-                                                class="text-blue-secondary group-hover:text-white"
-                                                name="view"
-                                                />
-                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
-                                                View
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="group flex items-center px-4 py-2
-                                        hover:text-white
-                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
-                                         dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <x-svg-icon
-                                                class="text-blue-secondary group-hover:text-white"
-                                                name="edit"
-                                                />
-                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
-                                                Edit
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="group flex items-center px-4 py-2
-                                        hover:text-white
-                                        hover:bg-gradient-to-br hover:from-blue-primary hover:to-blue-secondary
-                                         dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <x-svg-icon
-                                                class="text-blue-secondary group-hover:text-white"
-                                                name="trash"
-                                                />
-                                            <span class="ml-3 text-blue-secondary group-hover:text-white">
-                                                Trash
-                                            </span>
-                                        </a>
-                                    </li>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="h-16 w-full flex items-center justify-between bg-gradient-to-br from-blue-primary to-blue-secondary">
+                <span class="ml-5 inline-flex items-center bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+                    <span class="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
+                    <span class="me-1">{{ 8 }}</span>
+                    <span>Total Active Clients</span>
+                </span>
+                <div class="mr-5 flex flex-col items-center">
+                    {{ $clients->links() }}
+            </div>
+        </div>
 
-                                    </ul>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-        <div class="h-16 w-full flex items-center justify-between bg-gradient-to-br from-blue-primary to-blue-secondary">
-            <span class="ml-5 inline-flex items-center bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
-                <span class="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
-                <span class="me-1">{{ 8 }}</span>
-                <span>Total Active Clients</span>
-            </span>
-            <div class="mr-5 flex flex-col items-center">
-                {{ $clients->links() }}
-        </div>
     </div>
-
-</div>
 
 </x-app-layout>

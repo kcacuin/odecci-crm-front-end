@@ -19,29 +19,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/clients', [ClientsCorporateController::class, 'index'])->middleware(['auth', 'verified'])->name('clients');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('clients/corporate', [ClientsCorporateController::class, 'index'])->name('clients');
+    Route::post('clients/corporate', [ClientsCorporateController::class, 'store']);
+    Route::get('clients/corporate/add', [ClientsCorporateController::class, 'create']);
+});
 
-Route::get('/messages', function () {
+Route::get('messages', function () {
     return view('messages');
 })->middleware(['auth', 'verified'])->name('messages');
 
-Route::get('/appointments', function () {
+Route::get('appointments', function () {
     return view('appointments');
 })->middleware(['auth', 'verified'])->name('appointments');
 
-Route::get('/projects', function () {
+Route::get('projects', function () {
     return view('projects');
 })->middleware(['auth', 'verified'])->name('projects');
 
-Route::get('/settings', function () {
+Route::get('settings', function () {
     return view('settings');
 })->middleware(['auth', 'verified'])->name('settings');
 
-Route::get('/admin', function () {
+Route::get('admin', function () {
     return view('admin');
 })->middleware(['auth', 'verified'])->name('admin');
 

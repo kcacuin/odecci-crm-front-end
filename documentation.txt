@@ -71,3 +71,8 @@ Fourth Commit:
 • Added Pagination
     - published vendor for pagination
 
+January 31, 2024 (Wednesday)
+First Commit:
+• Clients Module: Add New (Corporate)
+- creating new client model
+- storing new client to database
