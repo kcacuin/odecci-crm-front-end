@@ -18,11 +18,19 @@ class ClientsCorporateFactory extends Factory
     {
         return [
             'client_code' => $this->faker->unique()->randomNumber(5),
-            'client_name' => $this->faker->company,
-            'contact_person' => $this->faker->name,
-            'address' => $this->faker->address,
-            'contact_number' => $this->faker->phoneNumber,
-            'email' => $this->faker->unique()->safeEmail,
+            'client_name' => $this->faker->company(),
+            'client_image' => $this->faker->image,
+
+            'house_number' => $this->faker->buildingNumber(),
+            'barangay_district' => $this->faker->streetAddress(),
+            'city_municipality' => $this->faker->city(),
+            'province_region' => $this->faker->countryCode(),
+            'country' => $this->faker->country(),
+
+            'industry' => $this->faker->companySuffix(),
+            'website' => $this->faker->url(),
+            'client_email' => $this->faker->unique()->safeEmail,
+            'socmed_platforms' => json_encode(["key" => $this->faker->shuffleString()] )
         ];
     }
 }

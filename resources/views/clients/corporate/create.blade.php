@@ -20,122 +20,82 @@
                 <form method="POST" action="/clients/corporate" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="flex">
+                    <div class="flex justify-between mx-5 gap-x-8">
                         {{-- * Display Picture --}}
+                        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <div class="flex justify-end px-4 pt-4">
+                                <button id="dropdownButton" data-dropdown-toggle="dropdown" class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
+                                    <span class="sr-only">Open dropdown</span>
+                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
+                                        <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
+                                    </svg>
+                                </button>
+                                <!-- Dropdown menu -->
+                                <div id="dropdown" class="z-10 hidden text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                    <ul class="py-2" aria-labelledby="dropdownButton">
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Export Data</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
+                                    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center pb-10">
+                                <img class="w-48 h-48 mb-3 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image"/>
+
+                                {{-- * Choose Image --}}
+                                <div class="flex mx-2 mt-4 md:mt-6">
+                                    <x-form.input name="client_image" type="file" labelname="Client Image" />
+                                </div>
+
+                                <span class="my-3 text-xl font-medium text-gray-900 dark:text-white">Choose Legend</span>
+                            </div>
+                        </div>
+
                         <!-- Client Image -->
-                        <div class="relative">
-                            <x-text-input
-                                class="block mt-1 w-full @error('client_image')
-                                border-pink-600 placeholder:select-none
-                                @enderror"
-                                type="file"
-                                name="client_image"
-                                required
-                                autofocus
-                            />
-                            <x-input-label name="Company Image"/>
+                        {{-- <x-form.input name="client_image" type="file" labelname="Client Image" /> --}}
 
-                            <x-input-error :messages="$errors->get('client_image')" class="mt-2" />
-                        </div>
 
-                        <div class="grid gap-6 mb-6 md:grid-cols-2">
-                            {{-- TODO: Populated Client Code with Disaabled Input --}}
+                        <div class="grid gap-6 mb-6 md:grid-cols-3">
                             <!-- Client Code -->
-                            <div class="relative">
-                                <x-text-input
-                                    class="block mt-1 w-full @error('client_code')
-                                    border-pink-600 placeholder:select-none
-                                    @enderror"
-                                    type="text"
-                                    name="client_code"
-                                    required
-                                    autofocus
-                                />
-                                <x-input-label name="Client Code"/>
+                            <x-form.input name="client_code" labelname="Client Code" readonly="true"
+                            :value="$nextClientCode"/>
 
-                                <x-input-error :messages="$errors->get('client_code')" class="mt-2" />
-                            </div>
                             <!-- Company Name -->
-                            <div class="relative">
-                                <x-text-input
-                                    class="block mt-1 w-full @error('client_name')
-                                    border-pink-600 placeholder:select-none
-                                    @enderror"
-                                    type="text"
-                                    name="client_name"
-                                    required
-                                    autofocus
-                                />
-                                <x-input-label name="Company Name"/>
+                            <x-form.input name="barangay_district" labelname="Company Name" />
 
-                                <x-input-error :messages="$errors->get('client_name')" class="mt-2" />
-                            </div>
-                            <!-- Contact Person -->
-                            <div class="relative">
-                                <x-text-input
-                                    class="block mt-1 w-full @error('contact_person')
-                                    border-pink-600 placeholder:select-none
-                                    @enderror"
-                                    type="text"
-                                    name="contact_person"
-                                    required
-                                    autofocus
-                                />
-                                <x-input-label name="Contact Person"/>
+                            <!-- House No. / Bldg. No. / Street -->
+                            <x-form.input name="house_number" labelname="House No. / Bldg. No. / Street" />
 
-                                <x-input-error :messages="$errors->get('contact_person')" class="mt-2" />
-                            </div>
-                            <!-- Contact Number -->
-                            <div class="relative">
-                                <x-text-input
-                                    class="block mt-1 w-full @error('contact_number')
-                                    border-pink-600 placeholder:select-none
-                                    @enderror"
-                                    type="number"
-                                    name="contact_number"
-                                    required
-                                    autofocus
-                                />
-                                <x-input-label name="Contact Number"/>
+                            <!-- City / Municipality -->
+                            <x-form.input name="city_municipality" labelname="City / Municipality" />
 
-                                <x-input-error :messages="$errors->get('contact_number')" class="mt-2" />
-                            </div>
+                            <!-- Province / Region -->
+                            <x-form.input name="province_region" labelname="Province / Region" />
+
+                            <!-- Country -->
+                            <x-form.input name="country" labelname="Country" />
+
+                            <!-- Industry -->
+                            <x-form.input name="industry" labelname="Industry" />
+
+                            <!-- Website -->
+                            <x-form.input name="website" labelname="Website" />
+
+                            <!-- Company Phone -->
+                            <x-form.input name="company_phone" labelname="Company Phone" />
+
                         </div>
                     </div>
-                    <!-- Address -->
-                    <div class="relative">
-                        <x-text-input
-                            class="block mt-1 w-full @error('address')
-                            border-pink-600 placeholder:select-none
-                            @enderror"
-                            type="text"
-                            name="address"
-                            required
-                            autofocus
-                        />
-                        <x-input-label name="Address"/>
 
-                        <x-input-error :messages="$errors->get('address')" class="mt-2" />
-                    </div>
-                    <!-- Email -->
-                    <div class="relative">
-                        <x-text-input
-                            class="block mt-1 w-full @error('email')
-                            border-pink-600 placeholder:select-none
-                            @enderror"
-                            type="email"
-                            name="email"
-                            required
-                            autofocus
-                        />
-                        <x-input-label name="Email"/>
+                    {{-- Button --}}
+                    <x-form.button>Save Information</x-form.button>
 
-                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                    </div>
-
-                    <x-primary-button class="w-full flex justify-center mt-4">
-                        {{ __('Save Information') }}
-                    </x-primary-button>
                 </form>
 
             </div>

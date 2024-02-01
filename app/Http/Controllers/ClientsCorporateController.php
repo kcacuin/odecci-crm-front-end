@@ -15,7 +15,12 @@ class ClientsCorporateController extends Controller
 
     public function create()
     {
-        return view('clients.corporate.create');
+        $lastClientCode = ClientsCorporate::max('client_code');
+        $nextClientCode = sprintf('%03d', ($lastClientCode + 1));
+
+        return view('clients.corporate.create', [
+            'nextClientCode' => $nextClientCode
+        ]);
     }
 
     public function store()

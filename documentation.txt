@@ -76,3 +76,9 @@ First Commit:
 • Clients Module: Add New (Corporate)
 - creating new client model
 - storing new client to database
+
+February 01, 2024 (Thursday)
+First Commit:
+• Clients Module: Add New (Corporate)
+- made form components
+- updated database

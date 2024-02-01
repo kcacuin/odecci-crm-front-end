@@ -194,13 +194,13 @@
                                 {{ $client->contact_person }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $client->address }}
+                                {{ $client->house_number . ' ' . $client->barangay_district . ' ' . $client->city_municipality . ' ' . $client->province_region . ' ' . $client->country }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $client->contact_number }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $client->email }}
+                                {{ $client->client_email }}
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center">

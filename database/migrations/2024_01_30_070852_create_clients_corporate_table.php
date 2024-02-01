@@ -13,13 +13,21 @@ return new class extends Migration
     {
         Schema::create('clients_corporate', function (Blueprint $table) {
             $table->id();
-            $table->string('client_code')->unique();
+            $table->string('client_code')->constrained()->cascadeOnDelete();
             $table->string('client_name');
             $table->string('client_image')->nullable();
-            $table->string('contact_person');
-            $table->text('address');
-            $table->string('contact_number');
-            $table->string('email')->unique();
+
+            // * Address
+            $table->string('house_number');
+            $table->string('barangay_district');
+            $table->string('city_municipality');
+            $table->string('province_region');
+            $table->string('country');
+
+            $table->string('industry');
+            $table->string('website')->nullable();
+            $table->string('client_email')->unique();
+            $table->json('socmed_platforms')->nullable();
             $table->timestamps();
         });
     }
