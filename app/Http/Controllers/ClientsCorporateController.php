@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ClientsCorporate;
+use Illuminate\Http\Request;
 
 class ClientsCorporateController extends Controller
 {
@@ -19,15 +20,14 @@ class ClientsCorporateController extends Controller
         $nextClientCode = sprintf('%03d', ($lastClientCode + 1));
 
         return view('clients.corporate.create', [
-            'nextClientCode' => $nextClientCode
+            'nextClientCode' => $nextClientCode,
         ]);
     }
 
     public function store()
     {
         ClientsCorporate::create(array_merge($this->validateClient(), [
-            'id' => request()->user()->id,
-            // 'client_image' => request()->file('client_image')->store('client_images')
+            'client_image' => request()->file('client_image')->store('client_images')
         ]));
 
         return redirect('/clients/corporate');
@@ -40,11 +40,18 @@ class ClientsCorporateController extends Controller
         return request()->validate([
             'client_code' => 'required',
             'client_name' => 'required',
-            // 'client_image' => $client->exists ? ['image'] : ['required', 'image'],
-            'contact_person' => 'required',
-            'address' => 'required',
-            'contact_number' => 'required',
-            'email' => 'required',
+            'client_image' => $client->exists ? ['image'] : ['required', 'image'],
+
+            // * Address
+            'house_number' => 'required',
+            'barangay_district' => 'required',
+            'city_municipality' => 'required',
+            'province_region' => 'required',
+            'country' => 'required',
+
+            'industry' => 'required',
+            'client_email' => 'required',
+            'client_contact_number' => 'required',
         ]);
     }
 }

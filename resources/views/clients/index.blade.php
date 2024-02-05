@@ -180,7 +180,7 @@
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0">
                                         <a href="#" class="relative block">
-                                            <img alt="profile" src="{{ asset('storage/img/client-dp-sample.png')}}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                                            <img alt="profile" src="{{ asset('storage/' . $client->client_image) }}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
                                         </a>
                                     </div>
                                     <div class="ml-3">

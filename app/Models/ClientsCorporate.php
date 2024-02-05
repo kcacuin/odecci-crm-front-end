@@ -11,12 +11,13 @@ class ClientsCorporate extends Model
 
     public $table = 'clients_corporate';
 
-    protected $fillable = [
-        'client_code',
-        'client_name',
-        'contact_person',
-        'address',
-        'contact_number',
-        'email',
-    ];
+    protected $guarded = [];
+
+    // protected $fillable = [
+    //     'client_code',
+    //     'client_name',
+    //     'client_image',
+    //     'client_email',
+    //     'client_contact_number',
+    // ];
 }

@@ -46,31 +46,55 @@
                                 </div>
                             </div>
                             <div class="flex flex-col items-center pb-10">
-                                <img class="w-48 h-48 mb-3 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image"/>
+
+                                <img src="{{ asset('storage/img/dp-default.png')}}" alt="Default" id="imagePreview" class="w-48 h-48 mb-3 object-contain rounded-full shadow-lg">
 
                                 {{-- * Choose Image --}}
                                 <div class="flex mx-2 mt-4 md:mt-6">
-                                    <x-form.input name="client_image" type="file" labelname="Client Image" />
+                                    <x-form.input name="client_image" onchange="previewImage()" type="file"
+                                        labelname="Client Image"
+                                        accept=".jpg, .jpeg, .png, .pdf"
+                                    />
                                 </div>
+                                @push('scripts')
+                                    <script>
+                                        function previewImage() {
+                                            let input = document.getElementById('client_image');
+                                            let preview = document.getElementById('imagePreview');
+
+                                            let file = input.files[0];
+                                            let reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                preview.src = e.target.result;
+                                                preview.style.display = 'block';
+                                            };
+
+                                            if (file) {
+                                                reader.readAsDataURL(file);
+                                            }
+                                        }
+                                    </script>
+                                @endpush
 
                                 <span class="my-3 text-xl font-medium text-gray-900 dark:text-white">Choose Legend</span>
                             </div>
                         </div>
 
-                        <!-- Client Image -->
-                        {{-- <x-form.input name="client_image" type="file" labelname="Client Image" /> --}}
-
-
                         <div class="grid gap-6 mb-6 md:grid-cols-3">
+
                             <!-- Client Code -->
                             <x-form.input name="client_code" labelname="Client Code" readonly="true"
                             :value="$nextClientCode"/>
 
                             <!-- Company Name -->
-                            <x-form.input name="barangay_district" labelname="Company Name" />
+                            <x-form.input name="client_name" labelname="Company Name" />
 
                             <!-- House No. / Bldg. No. / Street -->
                             <x-form.input name="house_number" labelname="House No. / Bldg. No. / Street" />
+
+                            <!-- Barangay / District -->
+                            <x-form.input name="barangay_district" labelname="Barangay / District" />
 
                             <!-- City / Municipality -->
                             <x-form.input name="city_municipality" labelname="City / Municipality" />
@@ -84,17 +108,25 @@
                             <!-- Industry -->
                             <x-form.input name="industry" labelname="Industry" />
 
+                            <!-- Client Email -->
+                            <x-form.input name="client_email" labelname="Company Email" />
+
+                            <!-- Company Phone -->
+                            <x-form.input name="client_contact_number" labelname="Company Phone" />
+
                             <!-- Website -->
                             <x-form.input name="website" labelname="Website" />
 
-                            <!-- Company Phone -->
-                            <x-form.input name="company_phone" labelname="Company Phone" />
+                            <!-- Social Media Platforms -->
+                            <x-form.input name="socmed_platforms" labelname="Social Media Platforms" />
 
                         </div>
                     </div>
 
                     {{-- Button --}}
-                    <x-form.button>Save Information</x-form.button>
+                    <div class="flex justify-end">
+                        <x-form.button class="flex">Save Information</x-form.button>
+                    </div>
 
                 </form>
 
@@ -105,3 +137,5 @@
     </div>
 
 </x-app-layout>
+
+

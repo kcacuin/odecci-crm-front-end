@@ -25,8 +25,9 @@ return new class extends Migration
             $table->string('country');
 
             $table->string('industry');
-            $table->string('website')->nullable();
             $table->string('client_email')->unique();
+            $table->string('client_contact_number');
+            $table->string('website')->nullable();
             $table->json('socmed_platforms')->nullable();
             $table->timestamps();
         });

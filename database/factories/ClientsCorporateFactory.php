@@ -28,8 +28,9 @@ class ClientsCorporateFactory extends Factory
             'country' => $this->faker->country(),
 
             'industry' => $this->faker->companySuffix(),
-            'website' => $this->faker->url(),
             'client_email' => $this->faker->unique()->safeEmail,
+            'client_contact_number' => $this->faker->unique()->phoneNumber(),
+            'website' => $this->faker->url(),
             'socmed_platforms' => json_encode(["key" => $this->faker->shuffleString()] )
         ];
     }

@@ -82,3 +82,9 @@ First Commit:
 • Clients Module: Add New (Corporate)
 - made form components
 - updated database
+
+February 05, 2024 (Monday)
+First Commit:
+• Clients Module: Add New (Corporate)
+- made storing new client to database
+- fixed the src link for client_images
