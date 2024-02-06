@@ -27,11 +27,19 @@ class ClientsCorporateController extends Controller
     public function store()
     {
         ClientsCorporate::create(array_merge($this->validateClient(), [
-            'client_image' => request()->file('client_image')->store('client_images')
+            'client_image' => request()->file('client_image')->store('client_images'),
+            // 'clie' => request()->file('client_image')->store('client_images')
         ]));
 
         return redirect('/clients/corporate');
     }
+
+    // public function update(Request $request)
+    // {
+    //     // auth()->user()->update(['color' => $request->color]);
+
+    //     // return redirect()->back()->with('success', 'Color updated successfully.');
+    // }
 
     protected function validateClient(?ClientsCorporate $client = null): array
     {
@@ -41,6 +49,7 @@ class ClientsCorporateController extends Controller
             'client_code' => 'required',
             'client_name' => 'required',
             'client_image' => $client->exists ? ['image'] : ['required', 'image'],
+            'client_color_legend' => 'required',
 
             // * Address
             'house_number' => 'required',

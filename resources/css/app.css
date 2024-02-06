@@ -157,3 +157,25 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endCo
 .odc-main-con-height {
     height: calc(100vh - 5rem);
 }
+
+/* *** Color Picker Styles */
+.odc-clr-picker {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 2.5rem;
+    height: 2.6rem;
+    border: none;
+    cursor: pointer;
+}
+
+.odc-clr-picker::-webkit-color-swatch {
+    border-radius: 50%;
+    border: none;
+}
+
+.odc-clr-picker::-moz-color-swatch  {
+    border-radius: 50%;
+    border: none;
+}

@@ -19,7 +19,8 @@ class ClientsCorporateFactory extends Factory
         return [
             'client_code' => $this->faker->unique()->randomNumber(5),
             'client_name' => $this->faker->company(),
-            'client_image' => $this->faker->image,
+            // 'client_image' => null,
+            'client_color_legend' => $this->faker->colorName(),
 
             'house_number' => $this->faker->buildingNumber(),
             'barangay_district' => $this->faker->streetAddress(),

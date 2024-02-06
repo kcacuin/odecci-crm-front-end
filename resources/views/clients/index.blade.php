@@ -166,7 +166,7 @@
                     </div>
                     <tbody>
                         @foreach ($clients as $client)
-                        <tr class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <tr key="{{ $client->id }}" class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <td class="w-4 p-4">
                                 <div class="flex items-center">
                                     <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-red bg-gray-100 border-gray-300 rounded focus:ring-red dark:focus:ring-red dark:ring-offset-red dark:focus:ring-offset-red focus:ring-2 dark:bg-red dark:border-red">
@@ -180,7 +180,9 @@
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0">
                                         <a href="#" class="relative block">
-                                            <img alt="profile" src="{{ asset('storage/' . $client->client_image) }}" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                                            <img alt="profile"
+                                            src="{{ file_exists(public_path('storage/' . $client->client_image)) ? asset('storage/' . $client->client_image) : asset('storage/img/dp-default.png') }}"
+                                            class="mx-auto object-cover rounded-full h-10 w-10 "/>
                                         </a>
                                     </div>
                                     <div class="ml-3">

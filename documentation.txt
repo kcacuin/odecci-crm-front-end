@@ -88,3 +88,8 @@ First Commit:
 • Clients Module: Add New (Corporate)
 - made storing new client to database
 - fixed the src link for client_images
+
+February 06, 2024 (Tuesday)
+First Commit:
+• Implementation of Livewire in the app
+- installation of livewire
