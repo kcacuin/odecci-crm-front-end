@@ -93,3 +93,15 @@ February 06, 2024 (Tuesday)
 First Commit:
 • Implementation of Livewire in the app
 - installation of livewire
+
+February 07, 2024 (Wednesday)
+First Commit:
+• Implementation of Livewire and Alpine JS
+- responsive display of color legend
+
+• Storing the selected color hex values in the database
+
+Second Commit:
+• Started making the structure for Contact Person Section in Add Client Corporate
+
+
