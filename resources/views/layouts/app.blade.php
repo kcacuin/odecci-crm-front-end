@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
         <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-        <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @stack('scripts')
     </head>

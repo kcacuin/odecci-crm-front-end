@@ -45,7 +45,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex flex-col items-center pb-10">
+                            <div class="flex flex-col items-center pb-6">
 
                                 <img src="{{ asset('storage/img/dp-default.png')}}" alt="Default" id="imagePreview" class="w-48 h-48 mb-3 object-contain rounded-full shadow-lg">
 
@@ -77,50 +77,7 @@
                                     </script>
                                 @endpush
 
-                                <div class="flex flex-col items-center">
-                                    <span class="my-3 text-xl font-medium text-gray-900 dark:text-white">Choose Legend</span>
-                                    <div class="flex gap-x-4">
-                                        <div class="flex gap-x-4">
-                                            <div>
-                                                <label for="swatch1" class="p-2 rounded-full flex items-center justify-center" style="background-color: #205375;">
-                                                    <input type="radio" name="client_color_legend" id="swatch1" class="p-3 rounded-full ring-[#205375] text-[#205375] bg-gray-100 border-gray-300  focus:ring-[#205375] dark:focus:ring-[#205375] dark:ring-offset-[#205375] dark:focus:ring-offset-[#205375] focus:ring-2 dark:bg-[#205375] dark:border-[#205375]" value="#205375" @if(old('client_color_legend', auth()->user()->color) === '#205375' || (!old('client_color_legend') && !auth()->user()->color)) checked @endif>
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <label for="swatch2" class="p-2 rounded-full flex items-center justify-center" style="background-color: #FB4B4B;">
-                                                    <input type="radio" name="color" id="swatch2" class="p-3 rounded-full ring-[#FB4B4B] text-[#FB4B4B] bg-gray-100 border-gray-300  focus:ring-[#FB4B4B] dark:focus:ring-[#FB4B4B] dark:ring-offset-[#FB4B4B] dark:focus:ring-offset-[#FB4B4B] focus:ring-2 dark:bg-[#FB4B4B] dark:border-[#FB4B4B]" value="#FB4B4B" @if(old('client_color_legend', auth()->user()->color) === '#FB4B4B' && !old('client_color_legend')) checked @endif>
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <label for="swatch3" class="p-2 rounded-full flex items-center justify-center" style="background-color: #ECD456;">
-                                                    <input type="radio" name="color" id="swatch3" class="p-3 rounded-full ring-[#ECD456] text-[#ECD456] bg-gray-100 border-gray-300  focus:ring-[#ECD456] dark:focus:ring-[#ECD456] dark:ring-offset-[#ECD456] dark:focus:ring-offset-[#ECD456] focus:ring-2 dark:bg-[#ECD456] dark:border-[#ECD456]" value="#ECD456" @if(old('client_color_legend', auth()->user()->color) === '#ECD456' && !old('client_color_legend')) checked @endif>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-col">
-                                            {{-- <span>Custom</span> --}}
-                                            <input type="color" id="colorPicker" class="odc-clr-picker" name="client_color_legend" value="{{ old('client_color_legend', auth()->user()->color) ?? '#000000' }}" onchange="updateColorPickerValue()">
-                                        </div>
-                                        @push('scripts')
-                                        <script>
-                                            function updateColorPickerValue() {
-                                                let colorPicker = document.getElementById('colorPicker');
-                                                let swatch1 = document.getElementById('swatch1');
-                                                let swatch2 = document.getElementById('swatch2');
-                                                let swatch3 = document.getElementById('swatch3');
-
-                                                if (swatch1.checked) {
-                                                    colorPicker.value = swatch1.value;
-                                                } else if (swatch2.checked) {
-                                                    colorPicker.value = swatch2.value;
-                                                } else if (swatch3.checked) {
-                                                    colorPicker.value = swatch3.value;
-                                                }
-                                            }
-                                        </script>
-                                        @endpush
-                                    </div>
-                                </div>
+                                <livewire:color-legend />
                             </div>
                         </div>
 
@@ -146,7 +103,7 @@
                             <x-form.input name="province_region" labelname="Province / Region" />
 
                             <!-- Country -->
-                            <x-form.input name="country" labelname="Country" />
+                            <x-form.input name="country" labelname="Country" autocomplete/>
 
                             <!-- Industry -->
                             <x-form.input name="industry" labelname="Industry" />

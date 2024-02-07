@@ -44,6 +44,10 @@ background: #ffffff;
 background-color: #205375;
 border: 0px none transparent;
 }
+/*
+input[type="radio"] {
+    color: currentColor;
+} */
 
 .odc-bg {
     background: url('../../public/storage/img/bg-1.png') left center/cover no-repeat;

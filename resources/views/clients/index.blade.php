@@ -147,6 +147,8 @@
                                     Client Name
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Contact Person
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -169,7 +171,7 @@
                         <tr key="{{ $client->id }}" class="bg-white border-b border-gray-primary dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <td class="w-4 p-4">
                                 <div class="flex items-center">
-                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-red bg-gray-100 border-gray-300 rounded focus:ring-red dark:focus:ring-red dark:ring-offset-red dark:focus:ring-offset-red focus:ring-2 dark:bg-red dark:border-red">
+                                    <input id="{{ $client->id }}" type="checkbox" class="w-4 h-4 text-red bg-gray-100 border-gray-300 rounded focus:ring-red dark:focus:ring-red dark:ring-offset-red dark:focus:ring-offset-red focus:ring-2 dark:bg-red dark:border-red">
                                     <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                                 </div>
                             </td>
@@ -191,6 +193,9 @@
                                         </p>
                                     </div>
                                 </div>
+                            </td>
+                            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <div class="p-3 bg-[{{ $client->client_color_legend }}] rounded-full"></div>
                             </td>
                             <td class="px-6 py-4">
                                 {{ $client->contact_person }}

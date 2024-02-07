@@ -28,18 +28,10 @@ class ClientsCorporateController extends Controller
     {
         ClientsCorporate::create(array_merge($this->validateClient(), [
             'client_image' => request()->file('client_image')->store('client_images'),
-            // 'clie' => request()->file('client_image')->store('client_images')
         ]));
 
         return redirect('/clients/corporate');
     }
-
-    // public function update(Request $request)
-    // {
-    //     // auth()->user()->update(['color' => $request->color]);
-
-    //     // return redirect()->back()->with('success', 'Color updated successfully.');
-    // }
 
     protected function validateClient(?ClientsCorporate $client = null): array
     {
