@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\ClientCorporate;
 use App\Models\ClientsCorporate;
+use App\Models\ContactPerson;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         ClientsCorporate::factory(10)->create();
+        ContactPerson::factory(10)->create();
     }
 }

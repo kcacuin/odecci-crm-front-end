@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('clients_corporate', function (Blueprint $table) {
             $table->id();
-            $table->string('client_code')->constrained()->cascadeOnDelete();
-            $table->string('client_name');
-            $table->string('client_image')->nullable();
-            $table->string('client_color_legend')->nullable();
+            $table->foreignId('contact_person_id');
+            $table->string('code');
+            $table->string('name');
+            $table->string('image')->nullable();
+            $table->string('color_legend')->nullable();
 
             // * Address
             $table->string('house_number');
@@ -26,8 +27,8 @@ return new class extends Migration
             $table->string('country');
 
             $table->string('industry');
-            $table->string('client_email');
-            $table->string('client_contact_number');
+            $table->string('email');
+            $table->string('contact_number');
             $table->string('website')->nullable();
             $table->json('socmed_platforms')->nullable();
             $table->timestamps();

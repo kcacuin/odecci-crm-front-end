@@ -104,4 +104,11 @@ First Commit:
 Second Commit:
 • Started making the structure for Contact Person Section in Add Client Corporate
 
+February 10, 2024 (Friday)
+First Commit:
+• Fixed Database Schema
+- Relation between ClientCoroporate and ContactPerson
+- Model and Factory Refactoring
+
+• Display of CContact Person into table???
 

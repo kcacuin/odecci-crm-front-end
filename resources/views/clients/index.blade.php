@@ -176,29 +176,31 @@
                                 </div>
                             </td>
                             <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                ODC-{{ $client->client_code }}
+                                ODC-{{ $client->code }}
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0">
                                         <a href="#" class="relative block">
                                             <img alt="profile"
-                                            src="{{ file_exists(public_path('storage/' . $client->client_image)) ? asset('storage/' . $client->client_image) : asset('storage/img/dp-default.png') }}"
+                                            src="{{ file_exists(public_path('storage/' . $client->image)) ? asset('storage/' . $client->image) : asset('storage/img/dp-default.png') }}"
                                             class="mx-auto object-cover rounded-full h-10 w-10 "/>
                                         </a>
                                     </div>
                                     <div class="ml-3">
                                         <p class="text-gray-900 whitespace-no-wrap">
-                                            {{ $client->client_name }}
+                                            {{ $client->name }}
                                         </p>
                                     </div>
                                 </div>
                             </td>
-                            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                <div class="p-3 bg-[{{ $client->client_color_legend }}] rounded-full"></div>
+                            <td scope="row" class="px-6 py-4  dark:text-white">
+                                <div class="p-3 rounded-full" style="background: {{ $client->color_legend }}"></div>
                             </td>
                             <td class="px-6 py-4">
-                                {{ $client->contact_person }}
+                                <p>
+                                    {{ $client->contact_person->first_name }} {{ $client->contact_person->last_name }}
+                                </p>
                             </td>
                             <td class="px-6 py-4">
                                 {{ $client->house_number . ' ' . $client->barangay_district . ' ' . $client->city_municipality . ' ' . $client->province_region . ' ' . $client->country }}
@@ -207,16 +209,16 @@
                                 {{ $client->contact_number }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $client->client_email }}
+                                {{ $client->email }}
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center">
-                                    <button id="dropdownProject-{{ $client->client_code }}" data-dropdown-toggle="dropdown-project-{{ $client->client_code }}" class="inline-flex items-center px-2 leading-none text-sm font-normal text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
+                                    <button id="dropdownProject-{{ $client->code }}" data-dropdown-toggle="dropdown-project-{{ $client->code }}" class="inline-flex items-center px-2 leading-none text-sm font-normal text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
                                         <span class="text-blue-secondary text-3xl tracking-tighter cursor-pointer select-none">
                                             {{ '••' }}
                                         </span>
                                     </button>
-                                    <div id="dropdown-project-{{ $client->client_code }}" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28 dark:bg-gray-700">
+                                    <div id="dropdown-project-{{ $client->code }}" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28 dark:bg-gray-700">
                                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                                         <li>
                                             <a href="#" class="group flex items-center px-4 py-2

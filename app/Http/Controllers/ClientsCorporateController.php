@@ -16,10 +16,11 @@ class ClientsCorporateController extends Controller
 
     public function create()
     {
-        $lastClientCode = ClientsCorporate::max('client_code');
+        $lastClientCode = ClientsCorporate::max('code');
         $nextClientCode = sprintf('%03d', ($lastClientCode + 1));
 
         return view('clients.corporate.create', [
+            'clients' => ClientsCorporate::latest()->paginate(5),
             'nextClientCode' => $nextClientCode,
         ]);
     }
@@ -27,7 +28,7 @@ class ClientsCorporateController extends Controller
     public function store()
     {
         ClientsCorporate::create(array_merge($this->validateClient(), [
-            'client_image' => request()->file('client_image')->store('client_images'),
+            'image' => request()->file('image')->store('images'),
         ]));
 
         return redirect('/clients/corporate');
@@ -38,10 +39,10 @@ class ClientsCorporateController extends Controller
         $client ??= new ClientsCorporate();
 
         return request()->validate([
-            'client_code' => 'required',
-            'client_name' => 'required',
-            'client_image' => $client->exists ? ['image'] : ['required', 'image'],
-            'client_color_legend' => 'required',
+            'code' => 'required',
+            'name' => 'required',
+            'image' => $client->exists ? ['image'] : ['required', 'image'],
+            'color_legend' => 'required',
 
             // * Address
             'house_number' => 'required',
@@ -51,8 +52,8 @@ class ClientsCorporateController extends Controller
             'country' => 'required',
 
             'industry' => 'required',
-            'client_email' => 'required',
-            'client_contact_number' => 'required',
+            'email' => 'required',
+            'contact_number' => 'required',
         ]);
     }
 }
